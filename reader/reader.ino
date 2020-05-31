@@ -6,7 +6,6 @@
  * Reader     Transmitter
  * TX <-----> RX
  * GND <----> GND
- * Vcc <-----> Vcc
  */
 
 #include "BluetoothSerial.h"
