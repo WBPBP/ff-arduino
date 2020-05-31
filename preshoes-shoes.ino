@@ -5,6 +5,7 @@
 #endif
 
 #define LEFT
+//#define RIGHT
 
 #ifdef LEFT
 #define PINS {4, 34, 26, 2, 15, 25, 13, 12, 33, 32, 27, 14}
@@ -18,6 +19,7 @@ BluetoothSerial SerialBT;
 int pin[12] = PINS;
 int delimeter = 0xFF;
 int data_sensor = 0;
+int biggest[12] = {0,};
 
 
 void setup() {
@@ -26,16 +28,26 @@ void setup() {
 
 
 void dumpInput(void) {
-  //Serial.print("[  ");
+  Serial.print("[  ");
   for (int i = 0; i < 12; i++) {
     data_sensor = analogRead(pin[i]);
 
-    //Serial.print(data_sensor);
-    //Serial.print("\t");
-    Serial.println(data_sensor);
-    SerialBT.println(data_sensor);
+    if (biggest[i] <= data_sensor)
+      biggest[i] = data_sensor;
+
+    if (biggest[i] != 0)
+      data_sensor = ((double)data_sensor / (double)biggest[i]) * 4096;
+
+    //Serial.print(biggest[i]);
+    Serial.print(data_sensor);
+    Serial.print(", ");
+    Serial.print(biggest[i]);
+    Serial.print("\t");
+
+    //Serial.println(data_sensor);
+    //SerialBT.println(data_sensor);
   }
-  //Serial.println("]");
+  Serial.println("]");
   SerialBT.println(delimeter);
 }
 
