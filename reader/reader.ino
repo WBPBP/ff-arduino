@@ -29,8 +29,7 @@ int data_sensor = 0;
 int biggest[12] = {0,};
 
 void setup() {
-  Serial.begin(9600); // for debug
-  Serial2.begin(9600); // for transmitter
+  Serial.begin(9600); // for transmitter
 }
 
 void dumpInput(void) {
@@ -43,9 +42,9 @@ void dumpInput(void) {
     if (biggest[i] != 0)
       data_sensor = ((double)data_sensor / (double)biggest[i]) * 15;
 
-    Serial2.write(data_sensor);
+    Serial.write(data_sensor);
   }
-  Serial2.write(delimeter);
+  Serial.write(delimeter);
 }
 
 void loop() {

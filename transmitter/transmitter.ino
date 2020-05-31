@@ -19,15 +19,13 @@
 
 BluetoothSerial SerialBT;
 
-
 void setup() {
   Serial.begin(9600);
-  Serial2.begin(9600);
   SerialBT.begin(NAME);
 }
 
 void loop() {
-  if (Serial2.available()) {
-    SerialBT.write(Serial2.read());
+  if (Serial.available()) {
+    SerialBT.write(Serial.read());
   }
 }
