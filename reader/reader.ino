@@ -14,8 +14,8 @@
 #error Bluetooth is not enabled! Please run `make menuconfig` to and enable it
 #endif
 
-#define LEFT
-//#define RIGHT
+//#define LEFT
+#define RIGHT
 
 #ifdef LEFT
 #define PINS {4, 34, 26, 2, 15, 25, 13, 12, 33, 32, 27, 14}
