@@ -38,8 +38,12 @@ static inline int _read_sample(int pin) {
 
 static inline int _read_battery() {
   int raw = analogRead(PIN_BATTERY);
+  int calculated = (raw - ADC_VALUE_WHEN_BATTERY_ZERO) * 100 / (ADC_VALUE_WHEN_BATTERY_FULL - ADC_VALUE_WHEN_BATTERY_ZERO);
 
-  return (raw - ADC_VALUE_WHEN_BATTERY_ZERO) * 100 / (ADC_VALUE_WHEN_BATTERY_FULL - ADC_VALUE_WHEN_BATTERY_ZERO);
+  calculated = min(100, calculated);
+  calculated = max(0, calculated);
+
+  return calculated;
 }
 
 void io_read_and_send_samples() {
