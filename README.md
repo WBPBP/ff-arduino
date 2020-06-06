@@ -14,6 +14,8 @@ Preshoes - ESP-32S 센서 모듈
 
 ### 센서 패널
 
+<img src="/docs/preshoes-dimension.png" width="350px">
+
 센서 패널은 13줄로 연결됩니다. 12줄은 각 센서의 출력을, 1줄은 3.3v 전압을 전달합니다. Pull-down이 적용되지 않았습니다.
 
 ### 브릿지 보드
@@ -44,10 +46,10 @@ Preshoes - ESP-32S 센서 모듈
 
 ### MCU측 연결
 
-![pinout](/docs/pinout.png)
+<img src="/docs/pinout.png" width="350px">
 
 아날로그 입력 핀은 보드 왼쪽에 9개, 오른쪽에 4개 존재합니다. 이중 `0`번 핀은 사용할 수 없습니다.
 
-![mcu-connection](/docs/mcu-connection.png)
+<img src="/docs/mcu-connection.png" width="350px">
 
 브릿지 보드의 케이블 중 Vcc에 가까운 3줄은 MCU의 우측에, 나머지는 좌측에 연결합니다. 세로 방향으로는 순서대로 연결합니다.
