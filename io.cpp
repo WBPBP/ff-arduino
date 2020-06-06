@@ -57,6 +57,8 @@ void io_read_and_send_samples() {
   _send(_read_sample(PIN_SENSOR_9));
   _send(_read_sample(PIN_SENSOR_10));
   _send(_read_sample(PIN_SENSOR_11));
+
+  delay(10);
 }
 
 void io_read_and_send_battery() {
