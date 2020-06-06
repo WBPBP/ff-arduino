@@ -20,16 +20,23 @@
 #ifndef _config_h
 #define _config_h
 
-// IO
 #define BAUDRATE 115200
-#define ADC_WIDTH 12
 
-// HW setup
-#define N_PINS 12
-#define PINS {2, 4, 15, 34, 32, 33, 25, 26, 14, 27, 13, 12}
+#define ADC_VALUE_WHEN_BATTERY_FULL 2400
+#define SAMPLE_DOWNSCALE_SHIFTS 8
 
-// Protocol
-#define SAMPLE_WIDTH 4
-#define DELIMITER 0xFF
+#define PIN_SENSOR_0  2
+#define PIN_SENSOR_1  4
+#define PIN_SENSOR_2  15
+#define PIN_SENSOR_3  34
+#define PIN_SENSOR_4  32
+#define PIN_SENSOR_5  33
+#define PIN_SENSOR_6  25
+#define PIN_SENSOR_7  26
+#define PIN_SENSOR_8  14
+#define PIN_SENSOR_9  27
+#define PIN_SENSOR_10 13
+#define PIN_SENSOR_11 12
+#define PIN_BATTERY 35
 
 #endif /* _config_h */

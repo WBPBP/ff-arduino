@@ -17,16 +17,15 @@
 * along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-#include "io.h"
+#ifndef _io_h
+#define _io_h
 
-void setup() {
-	io_init();
-}
+#define TYPE_SAMPLE 0x01
+#define TYPE_BATTERY 0x02
 
-void loop() {
-	io_read_and_send_battery();
+void io_init();
 
-	for (int i = 0; i < 500; ++i) {
-		io_read_and_send_samples();
-	}
-}
+void io_read_and_send_samples();
+void io_read_and_send_battery();
+
+#endif /* _io_h */
