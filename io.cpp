@@ -37,7 +37,9 @@ static inline int _read_sample(int pin) {
 }
 
 static inline int _read_battery() {
-  return map(analogRead(PIN_BATTERY), 0, ADC_VALUE_WHEN_BATTERY_FULL, 0, 100);
+  int raw = analogRead(PIN_BATTERY);
+
+  return (raw - ADC_VALUE_WHEN_BATTERY_ZERO) * 100 / (ADC_VALUE_WHEN_BATTERY_FULL - ADC_VALUE_WHEN_BATTERY_ZERO);
 }
 
 void io_read_and_send_samples() {
